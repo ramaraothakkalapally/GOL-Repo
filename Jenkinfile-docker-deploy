@@ -69,15 +69,15 @@ stages {
  }
   stage('Update Image Version') {
       steps {
-        sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/ deploy-kube.yml'''
+        sh label: '', script: '''sed -i s/latest/$BUILD_NUMBER/deploy-kube.yml'''
 
       }
  }
   stage('Apply Kubernetes files') {
             steps {
-             sh label: '', script: '''scp *.yml jenkins@:172.31.29.229/home/jenkins
-                                  ssh jenkins@172.31.29.229 kubectl apply -f deploy-kube.yml
-                                  ssh jenkins@172.31.29.229 kubectl apply -f service.yml'''
+             sh label: '', script: '''scp *.yml jenkins@:3.236.51.40/home/jenkins
+                                  ssh jenkins@3.236.51.40 kubectl apply -f deploy-kube.yml
+                                  ssh jenkins@3.236.51.40 kubectl apply -f service.yml'''
            
         }
      }
